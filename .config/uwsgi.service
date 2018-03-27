@@ -1,0 +1,15 @@
+[Unit]
+Desciption = EC2 Deploy uWSGI service
+After = syslog.target
+
+[Service]
+ExecStart = /home/ubuntu/.pyenv/versions/myrealtrip/bin/uwsgi -i /srv/myrealtrip/.config/uwsgi.ini
+
+Restart = always
+KillSignal = SIGQUIT
+Type = notfiy
+StandardError = syslog
+NotifyAccess = all
+
+[Install]
+WnatedBy = multi-user.target
