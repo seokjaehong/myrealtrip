@@ -1,7 +1,8 @@
 
 #Custom
 .secrets/
-.media
+.media/
+.static/
 
 # Created by https://www.gitignore.io/api/git,linux,macos,django,python,pycharm+all
 

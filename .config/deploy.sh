@@ -12,12 +12,12 @@ sudo ln -sf /etc/nginx/sites-available/nginx-app.conf \
 sudo cp -f /srv/myrealtrip/.config/uwsgi.service \
            /etc/systemd/system/uwsgi.service
 
-## collectstatic을 위한 과정
-#cd /srv/myrealtrip/app
-## ubuntu유저로 collectstatic명령어를 실행 (스크립트가 root권한으로 실행되므로)
-#/bin/bash -c \
-#'/home/ubuntu/.pyenv/versions/myrealtrip/bin/python \
-#/srv/myrealtrip/app/manage.py collectstatic --noinput' ubuntu
+# collectstatic을 위한 과정
+cd /srv/myrealtrip/app
+# ubuntu유저로 collectstatic명령어를 실행 (스크립트가 root권한으로 실행되므로)
+/bin/bash -c \
+'/home/ubuntu/.pyenv/versions/myrealtrip/bin/python \
+/srv/myrealtrip/app/manage.py collectstatic --noinput' ubuntu
 
 # uwsgi, nginx를 재시작
 sudo systemctl enable uwsgi

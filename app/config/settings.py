@@ -42,7 +42,10 @@ STATICFILES_DIRS = [
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '.amazonaws.com',
+    '.localhost',
+]
 
 AUTH_USER_MODEL = 'members.User'
 # Application definition
