@@ -1,15 +1,16 @@
+# 백그라운드 서비스가 어떻게 돌아갓ㄹ 지
 [Unit]
-Desciption = EC2 Deploy uWSGI service
-After = syslog.target
+Description=EC2 Deploy uWSGI service
+AFTER=syslog.target
 
 [Service]
-ExecStart = /home/ubuntu/.pyenv/versions/myrealtrip/bin/uwsgi -i /srv/myrealtrip/.config/uwsgi.ini
+ExecStart=/home/ubuntu/.pyenv/versions/myrealtrip/bin/uwsgi -i /srv/myrealtrip/.config/uwsgi.ini
 
-Restart = always
-KillSignal = SIGQUIT
-Type = notfiy
-StandardError = syslog
-NotifyAccess = all
+Restart=always
+KillSignal=SIGQUIT
+Type=notify
+StandardError=syslog
+NotifyAccess=all
 
 [Install]
-WnatedBy = multi-user.target
+WantedBy=multi-user.target
