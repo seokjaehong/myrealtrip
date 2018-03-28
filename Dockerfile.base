@@ -1,0 +1,11 @@
+# docker build -t myreailtrip.base -f Dockerfile.base .
+
+FROM        python:3.6.4
+
+RUN         apt-get -y update
+RUN         apt-get -y dist-upgrade
+RUN         apt-get -y install nginx supervisor
+
+COPY        . /srv/project
+WORKDIR     /srv/project
+RUN         pip install -r requirements.txt
